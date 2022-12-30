@@ -1,10 +1,9 @@
 package com.remitter.service;
 
 import java.text.ParseException;
+import java.util.List;
+import java.util.Optional;
 
-import org.springframework.stereotype.Service;
-
-import com.remitter.entity.Account;
 import com.remitter.entity.Remitter;
 
 
@@ -13,4 +12,6 @@ public interface RemitterService {
 	public Remitter createRemitter(Remitter remitter) throws ParseException;
 	public Remitter getRemitterByEmailPassword(String email,String password);
 	public Boolean updateRemitterMaxLimitById(int customerId);
+	public List<Remitter> getAllRemitters();
+	public Optional<Remitter> getRemitterById(int customerId);
 }

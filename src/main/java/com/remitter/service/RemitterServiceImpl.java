@@ -13,7 +13,7 @@ import com.remitter.entity.Remitter;
 import com.remitter.repository.RemitterRepository;
 import com.remitter.util.ApplicationConstants;
 
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 
 @Service
 public class RemitterServiceImpl implements RemitterService {
@@ -43,6 +43,18 @@ public class RemitterServiceImpl implements RemitterService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public List<Remitter> getAllRemitters() {
+		// TODO Auto-generated method stub
+		return remitterRepo.findAll();
+	}
+
+	@Override
+	public Optional<Remitter> getRemitterById(int customerId) {
+		// TODO Auto-generated method stub
+		return remitterRepo.findById(customerId);
 	}
 
 }

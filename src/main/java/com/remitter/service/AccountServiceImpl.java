@@ -1,14 +1,18 @@
 package com.remitter.service;
 
+import java.util.List;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.remitter.entity.Account;
+import com.remitter.entity.Remitter;
 import com.remitter.repository.AccountRepository;
 
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -48,5 +52,26 @@ public class AccountServiceImpl implements AccountService {
 		}
 		return false;
 	}
+
+	@Override
+	public Remitter getRemitterByAccountNumber(Long accountNumber) {
+		// TODO Auto-generated method stub
+		return getAccountByAccountNumber(accountNumber).get().getRemitter();
+	}
+
+	@Override
+	public Account getRemitterAndAccountByAccountNumber(Long accountNumber) {
+		// TODO Auto-generated method stub
+		return getAccountByAccountNumber(accountNumber).get();
+	}
+
+	@Override
+	public Boolean deleteRemitterAccountByAccountNumber(long accountNumber) {
+		// TODO Auto-generated method stub
+		 accountRepo.deleteById(accountNumber);
+		 return true;
+	}
+
+	
 
 }

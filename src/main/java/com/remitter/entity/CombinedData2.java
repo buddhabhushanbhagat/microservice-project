@@ -2,12 +2,9 @@ package com.remitter.entity;
 
 import java.util.Date;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PositiveOrZero;
+//import jakarta.persistence.Column;
+//import jakarta.validation.constraints.NotNull;
+//import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -21,6 +18,7 @@ public class CombinedData2 {
 	private String address;
 	private String password;
 	private int maxLimit;
+	private long contactNo;
 
 	private long accountNumber;
 	private double accountBalance;
