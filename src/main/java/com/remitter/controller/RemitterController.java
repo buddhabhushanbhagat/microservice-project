@@ -94,6 +94,8 @@ public class RemitterController {
 	
 	@GetMapping("/remitterBalance/{accountNumber}")
 	public ResponseEntity<Double> getRemitterBalanceByAccountNumber(@PathVariable Long accountNumber) {
+		if(accountService.getAccountByAccountNumber(accountNumber).isEmpty())
+			throw new RemitterNotFoundException("Remitter account not found for Id "+accountNumber); 
 		Double remitterBalance = accountService.getAccountByAccountNumber(accountNumber).get().getAccountBalance();
 		return ResponseEntity.status(HttpStatus.OK).body(remitterBalance);
 	}

@@ -31,7 +31,6 @@ public class AccountServiceImpl implements AccountService {
 	@Transactional
 	public Account getAccountByRemitterId(int remitterId) {
 		// TODO Auto-generated method stub
-//		@EntityGraph(value = "Review.comments", type = EntityGraphType.FETCH)
 		return accountRepo.findByRemitterCustomerId(remitterId);
 	}
 
